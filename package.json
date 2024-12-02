@@ -1,0 +1,23 @@
+{
+  "name": "word-wizard-bot",
+  "version": "1.0.0",
+  "description": "WordWizard is an application (telegram bot) designed to help users identify words based on their definitions. Simply provide a definition, and WordGenius will return the word that matches it. This tool is perfect for students, writers, and anyone looking to expand their vocabulary.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/bot.js",
+    "build": "npx tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "@types/node-telegram-bot-api": "^0.64.7",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.16.0",
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}
