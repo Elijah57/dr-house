@@ -25,6 +25,9 @@ jobs:
             - name: Transpile Typescript to Javascript
               run: npx tsc
 
+            - name: List Files and directories
+              run: ls -R
+
             - name: Commit and Push Transpiled Js
               run: |
                 git config --global user.name "github-actions[bot]"
