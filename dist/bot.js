@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_telegram_bot_api_1 = __importDefault(require("node-telegram-bot-api"));
 const config_1 = require("./config");
-const prof_1 = __importDefault(require("./prof"));
+const ai_1 = __importDefault(require("./ai"));
 const generative_ai_1 = require("@google/generative-ai");
 const bot = new node_telegram_bot_api_1.default(config_1.config.bot_token, { polling: true });
 bot.onText(/\/start/, (msg) => {
@@ -36,7 +36,7 @@ bot.on("message", (msg) => __awaiter(void 0, void 0, void 0, function* () {
         const sentMessage = yield bot.sendMessage(chatId, "Bot is generating a response", { parse_mode: "Markdown" });
         try {
             yield bot.sendChatAction(chatId, "typing");
-            let response = yield (0, prof_1.default)(userInput);
+            let response = yield (0, ai_1.default)(userInput);
             yield bot.editMessageText(response, { chat_id: chatId, message_id: sentMessage.message_id, parse_mode: "Markdown" });
         }
         catch (error) {
