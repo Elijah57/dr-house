@@ -25,9 +25,17 @@ jobs:
             - name: Transpile Typescript to Javascript
               run: npx tsc
 
-            - name: List Files and directories
-              run: ls -R
+            # - name: List Files and directories
+            #   run: ls -R
 
+            - name: Add dist folder
+              run: git add dist
+
+            - name: Commit changes
+              run: |
+                git config --local user.email "github-actions@github.com"
+                git config --local user.name "GitHub Actions"
+                git commit -m "Build: Add compiled JavaScript files"
 
             - name: Commit and Push Transpiled Js
               run: |
@@ -36,6 +44,12 @@ jobs:
                 git add -f dist/
                 git commit -m "Build: Transpiled Typescript to Javascript"
                 git push
+
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: main # Or your main branch name
 
             # - name: Upload artifact (optional)
             #   uses: actions/upload-artifact@v3
