@@ -28,6 +28,9 @@ jobs:
             - name: List Files and directories
               run: ls -R
 
+            - name: Stage all files
+              run: git add .
+
             - name: Commit and Push Transpiled Js
               run: |
                 git config --global user.name "github-actions[bot]"
