@@ -1,7 +1,7 @@
 import TelegramBot from "node-telegram-bot-api";
 import * as http from "http";
 import  {about, config, welcome} from "./config";
-import genAIResponse from "./prof";
+import genAIResponse from "./ai";
 import { GoogleGenerativeAIResponseError } from "@google/generative-ai";
 
 
