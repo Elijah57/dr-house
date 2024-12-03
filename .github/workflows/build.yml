@@ -25,9 +25,6 @@ jobs:
             - name: Transpile Typescript to Javascript
               run: npx tsc
 
-            # - name: List Files and directories
-            #   run: ls -R
-
             - name: Add dist folder
               run: git add -f dist/
 
@@ -49,6 +46,7 @@ jobs:
             #   with:
             #             name: dist
             #             path: dist/ 
+            
               env:
                 CI: true
 
