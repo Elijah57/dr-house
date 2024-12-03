@@ -20,7 +20,7 @@ jobs:
                 node-version: 20
 
             - name: Install dependencies
-              run: npm install
+              run: npm ci
 
             - name: Transpile Typescript to Javascript
               run: npx tsc
@@ -29,20 +29,20 @@ jobs:
               run: ls -R
 
 
-            # - name: Commit and Push Transpiled Js
-            #   run: |
-            #     git config --global user.name "github-actions[bot]"
-            #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            #     git add .
-            #     git commit -m "Build: Transpiled Typescript to Javascript"
-            #     git push
+            - name: Commit and Push Transpiled Js
+              run: |
+                git config --global user.name "github-actions[bot]"
+                git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                git add -f dist/
+                git commit -m "Build: Transpiled Typescript to Javascript"
+                git push
 
-            - name: Upload artifact (optional)
-              uses: actions/upload-artifact@v3
-              with:
-                        name: dist
-                        path: dist/ 
-            #   env:
-            #     CI: true
+            # - name: Upload artifact (optional)
+            #   uses: actions/upload-artifact@v3
+            #   with:
+            #             name: dist
+            #             path: dist/ 
+              env:
+                CI: true
 
             
